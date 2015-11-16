@@ -1,0 +1,17 @@
+{
+    "name": "visalogic/api",
+    "description": "This package contains the client-side API classes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Gelling",
+            "email": "daniel@deaannemers.nl"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "VisaLogic": "src/"
+        }
+    }
+}
