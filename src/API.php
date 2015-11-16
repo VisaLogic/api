@@ -2,7 +2,7 @@
 
 namespace VisaLogic;
 
-class API
+class Api
 {
 
 	protected $apiKey;

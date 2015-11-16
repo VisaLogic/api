@@ -42,7 +42,7 @@ You can aquire an API key via our [backoffice](backoffice.visalogic.nl).
 
 You can set the API key by passing it as `__constructor` variable:
 
-    $visalogic = new VisaLogic\API('your-api-key');
+    $visalogic = new VisaLogic\Api('your-api-key');
 
 ## 4 Available methods
 
