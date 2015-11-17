@@ -55,10 +55,15 @@ You can request a visa by calling the `requestVisa();` method with an multidimen
         [
             'first_names' => 'John',
             'last_names' => 'Doe',
+            'customer_addressline' => 'Streetname 1',
+            'customer_addressline_1' => '9711 AA',
+            'customer_city' => 'Groningen',
+            'customer_country' => 'NL',
             'date_of_birth' => '1990-01-01',
+            'place_of_birth' => 'Groningen',
             'nationality' => 'Dutch',
             'document_type' => 'passport',
-            'document_number' => 'AA1BBBB00'
+            'document_number' => 'AA1BBBB00',
             'document_issue_date' => '2015-01-01',
             'document_expire_date' => '2020-01-01'
         ]
@@ -66,6 +71,8 @@ You can request a visa by calling the `requestVisa();` method with an multidimen
     
     $applicationId = $visalogic->applyForVisa($personalia);
     
+`place_of_birth` can be eigther `Dutch` or `Belgium`, and `document_type` can be `passport` or `id_card`.
+
 ### 4.2 Get visa request status
 
 You can request the status of a visa application by calling the following method, with the application_id:
