@@ -27,7 +27,7 @@ In your project you should `require` composer's `autoload.php` file:
 Our API class is also available on [Github](http://github.com/visalogic/api).
 
 When you choose to install from Github you need to require all the files in `src/` into your project in the following order:
-- Kernel.php
+- ApiContract.php
 - API.php
 
 ## 3 Configuration
