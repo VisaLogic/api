@@ -8,10 +8,11 @@ interface ApiContract {
 	*
 	*	The constructor is responsible for setting the $this->apiKey variable
 	*
-	*	@param $apiKey
+	*	@param (string) $apiKey
+	*	@param (bool) $setStatusCode
 	*	@return void
 	**/
-	public function __construct($apiKey);
+	public function __construct($apiKey, $setStatusCode);
 
 	/**
 	*
