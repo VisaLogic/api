@@ -10,7 +10,6 @@ class Api extends Kernel implements ApiContract
 	protected $apiKey;
 
 	/**
-	*
 	*	The constructor is responsible for setting the $this->apiKey variable
 	*
 	*	@param (string) $apiKey
@@ -24,70 +23,92 @@ class Api extends Kernel implements ApiContract
 	}
 
 	/**
-	*
 	*	The getOrders method is responsible for making a call to the API
 	*	to retreive the comapanies orders.
 	*
-	*	@param $apiKey
-	*	@return $application_id
+	*	@param $page (int)
+	*	@return object
 	**/
-	public function getOrders()
+	public function getOrders($page = 1)
 	{
-		return $this->get('orders');
+		return $this->get('orders', ['page' => $page]);
 	}
 
 	/**
+	*	The getOrder method gets an order by it's id.
 	*
-	*	The getOrder method is gets an order by it's id.
-	*
-	*	@param $apiKey
-	*	@return $application_id
+	*	@param $id (int)
+	*	@return object
 	**/
 	public function getOrder($id)
 	{
 		return $this->get('orders', ['id' => $id]);
 	}
-	
+
+	/**
+	*	The createOrder method creates a new VisaLogic\Resources\Order instance
+	*
+	*	@param $data (array)
+	*	@return VisaLogic\Resouces\Order object
+	**/
 	public function createOrder($data)
 	{
 		return new Order($data);
 	}
 
-	public function postOrder($order)
+	/**
+	*	The postOrder method posts the order to the api server.
+	*
+	*	@param VisaLogic\Resources\Order $order
+	*	@return object
+	**/
+	public function postOrder(Order $order)
 	{
 		return $this->post('orders', $order);
 	}
 
 	/**
+	*	The getStatus method returns the status of an application
 	*
-	*	The applyForVisa method is responsible for making the call to the API
-	*	to apply for the visa.
-	*
-	*	@param $apiKey
-	*	@return $application_id
+	*	@param $application_id (int)
+	*	@return string
 	**/
-	public function applyForVisa($personalia)
-	{
-		
-	}
-
 	public function getStatus($application_id)
 	{
+		$result = $this->get('applications/status', ['id' => $application_id]);
 
+		return $result->data->status;
 	}
 
-	public function getVisaUrl($application_id)
+	/**
+	*	The getViss method gets the pdf of an visa by it's id
+	*
+	*	@param int $application_id
+	*	@return pdf
+	**/
+	public function getVisa($application_id)
 	{
+		$result = $this->get(
+			'applications/download',
+			['id' => $application_id],
+			true
+		);
 
-	}
-	
-	public function getVisaPlain($application_id)
-	{
+		if(
+			is_object(json_decode($result)) && 
+			json_decode($result)->status != 'success'
+		)
+			return json_decode($result);
 
-	}
-
-	public function getRejectionReason($application_id)
-	{
-
+		header('Cache-Control: public'); 
+		header('Content-type: application/pdf');
+		header(
+			'Content-Disposition: attachment; filename="' .
+			$application_id .
+			'.pdf"'
+		);
+		header('Content-Length: ' . strlen($result));
+		
+		return $result;
 	}
 }

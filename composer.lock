@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ff4267b65302d6a36381852d077a75e5",
-    "content-hash": "3ef861ab8c40777856a40f8fc964da5b",
+    "hash": "db46cdff8715212060808ea7d5fc2260",
+    "content-hash": "0f501ae6dec4254643d1021500073672",
     "packages": [
         {
             "name": "danielgelling/http",
-            "version": "v0.2.21",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielgelling/http.git",
-                "reference": "5ca67cf8eae1fa46744449c4ed0a35f35c363fd9"
+                "reference": "58084a060e6cc66f53bb87027c09110c4c8cabaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielgelling/http/zipball/5ca67cf8eae1fa46744449c4ed0a35f35c363fd9",
-                "reference": "5ca67cf8eae1fa46744449c4ed0a35f35c363fd9",
+                "url": "https://api.github.com/repos/danielgelling/http/zipball/58084a060e6cc66f53bb87027c09110c4c8cabaf",
+                "reference": "58084a060e6cc66f53bb87027c09110c4c8cabaf",
                 "shasum": ""
             },
             "require": {
@@ -41,13 +41,15 @@
                 }
             ],
             "description": "Package with which you can easily perform HTTP requests in PHP",
-            "time": "2016-01-21 17:38:13"
+            "time": "2016-01-25 14:20:50"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "danielgelling/http": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

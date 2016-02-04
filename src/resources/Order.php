@@ -9,8 +9,6 @@ class Order extends Resource
         parent::__construct($data);
 
         $this->applications = [];
-
-        $this->applications = json_decode(json_encode($this->applications));
     }
 
     public function addApplication($data)

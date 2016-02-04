@@ -3,7 +3,6 @@
 namespace VisaLogic;
 
 interface ApiContract {
-
 	/**
 	*
 	*	The constructor is responsible for setting the $this->apiKey variable
@@ -15,52 +14,51 @@ interface ApiContract {
 	public function __construct($apiKey, $setStatusCode);
 
 	/**
+	*	The getOrders method is responsible for making a call to the API
+	*	to retreive the comapanies orders.
 	*
-	*	The applyForVisa method is responsible for making the call to the API
-	*	to apply for the visa.
-	*
-	*	@param $apiKey
-	*	@return $application_id
+	*	@param $page (int)
+	*	@return object
 	**/
-	public function applyForVisa($personalia);
+	public function getOrders($page = 1);
 
 	/**
+	*	The getOrder method gets an order by it's id.
 	*
-	*	The getStatus method is responsible for retreiving the status of an
-	*	visa that has been applied for.
+	*	@param $id (int)
+	*	@return object
+	**/
+	public function getOrder($id);
+
+	/**
+	*	The createOrder method creates a new VisaLogic\Resources\Order instance
 	*
-	*	@param $application_id
-	*	@return string 'WAITING' | 'REJECTED' | 'APPROVED'
+	*	@param $data (array)
+	*	@return VisaLogic\Resouces\Order object
+	**/
+	public function createOrder($data);
+
+	/**
+	*	The postOrder method posts the order to the api server.
+	*
+	*	@param VisaLogic\Resources\Order $order
+	*	@return object
+	**/
+	public function postOrder(\VisaLogic\Resources\Order $order);
+
+	/**
+	*	The getStatus method returns the status of an application
+	*
+	*	@param $application_id (int)
+	*	@return string
 	**/
 	public function getStatus($application_id);
 
 	/**
+	*	The getViss method gets the pdf of an visa by it's id
 	*
-	*	The getVisaUrl method is responsible for retreiving the download
-	*	url of an approved visa.
-	*
-	*	@param $application_id
-	*	@return string $visa_url
+	*	@param int $application_id
+	*	@return pdf
 	**/
-	public function getVisaUrl($application_id);
-
-	/**
-	*
-	*	The getVisaPlain method is responsible for retreiving the plain
-	*	text visa document of an approved visa.
-	*
-	*	@param $application_id
-	*	@return string $visa
-	**/
-	public function getVisaPlain($application_id);
-
-	/**
-	*
-	*	The getRejectionReason method is responsible for retreiving the
-	*	reason for a rejected visa.
-	*
-	*	@param $application_id
-	*	@return string $visa_rejection_reason
-	**/
-	public function getRejectionReason($application_id);
+	public function getVisa($application_id);
 }

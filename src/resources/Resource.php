@@ -6,9 +6,7 @@ use Http\Factory as Http;
 
 class Resource
 {
-    public $storage;
-
-    public function __construct($data)
+    public function __construct($data = [])
     {
         foreach($data as $key => $value)
         {
