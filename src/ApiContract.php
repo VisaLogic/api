@@ -76,5 +76,5 @@ interface ApiContract {
 	*
 	*	@return array
 	**/
-	function getCountries();
+	function getNationalities();
 }
