@@ -95,12 +95,12 @@ class Api extends Kernel implements ApiContract
 		);
 
 		if(
-			is_object(json_decode($result)) && 
+			is_object(json_decode($result)) &&
 			json_decode($result)->status != 'success'
 		)
 			return json_decode($result);
 
-		header('Cache-Control: public'); 
+		header('Cache-Control: public');
 		header('Content-type: application/pdf');
 		header(
 			'Content-Disposition: attachment; filename="' .
@@ -108,7 +108,35 @@ class Api extends Kernel implements ApiContract
 			'.pdf"'
 		);
 		header('Content-Length: ' . strlen($result));
-		
+
 		return $result;
+	}
+
+	/**
+	*	The getCountries method returns all countries from which can be
+	*	applied from.
+	*
+	*	@return array
+	**/
+	function getCountries()
+	{
+		return [
+			['NL' => 'Nederland'],
+			['BE' => 'Belgie']
+		];
+	}
+
+	/**
+	*	The getNationalities method returns all nationalities which can
+	*   apply for a visa.
+	*
+	*	@return array
+	**/
+	function getNationalities()
+	{
+		return [
+			['NL' => 'Nederlandse'],
+			['BE' => 'Belgische']
+		];
 	}
 }

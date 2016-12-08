@@ -55,10 +55,26 @@ interface ApiContract {
 	public function getStatus($application_id);
 
 	/**
-	*	The getViss method gets the pdf of an visa by it's id
+	*	The getVisa method gets the pdf of an visa by it's id
 	*
 	*	@param int $application_id
 	*	@return pdf
 	**/
 	public function getVisa($application_id);
+
+	/**
+	*	The getCountries method returns all countries from which can be
+	*	applied from.
+	*
+	*	@return array
+	**/
+	public function getCountries();
+
+	/**
+	*	The getNationalities method returns all nationalities which can
+	*   apply for a visa.
+	*
+	*	@return array
+	**/
+	function getCountries();
 }
