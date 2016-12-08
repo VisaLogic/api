@@ -6,7 +6,7 @@ use Http\Factory as Http;
 
 class Kernel
 {
-	private $apiUrl = 'http://api.visalogic.dev/api';
+	private $apiUrl = 'https://secure.visalogic.nl/api';
 	protected $apiKey;
     protected $setStatusCode;
 
@@ -29,12 +29,12 @@ class Kernel
     public function post($resource, $params = [], $returnPlain = false)
     {
         $url = $this->apiUrl . '/' . $resource . '?apiKey=' . $this->apiKey;
-        
+
         $response = Http::post($url, $params);
 
         if($returnPlain)
             return $response;
-        
+
         $this->setHttpStatusCode($response);
 
         return $response->response;
