@@ -121,8 +121,8 @@ class Api extends Kernel implements ApiContract
 	function getCountries()
 	{
 		return [
-			['NL' => 'Nederland'],
-			['BE' => 'Belgie']
+			'NL' => 'Nederland',
+			'BE' => 'Belgie'
 		];
 	}
 
@@ -135,8 +135,8 @@ class Api extends Kernel implements ApiContract
 	function getNationalities()
 	{
 		return [
-			['NL' => 'Nederlandse'],
-			['BE' => 'Belgische']
+			'NL' => 'Nederlandse',
+			'BE' => 'Belgische'
 		];
 	}
 
