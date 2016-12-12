@@ -145,7 +145,7 @@ class Api extends Kernel implements ApiContract
 	*
 	*	@return array
 	**/
-	function getNationalities()
+	function getDocumentTypes()
 	{
 		return $this->get('document_types');
 	}
