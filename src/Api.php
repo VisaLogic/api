@@ -139,4 +139,14 @@ class Api extends Kernel implements ApiContract
 			['BE' => 'Belgische']
 		];
 	}
+
+	/**
+	*	The getDocumentTypes method returns all document types VisaLogic offers.
+	*
+	*	@return array
+	**/
+	function getNationalities()
+	{
+		return $this->get('document_types');
+	}
 }
