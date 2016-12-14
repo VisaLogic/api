@@ -94,7 +94,7 @@ class Api extends Kernel implements ApiContract
 			true
 		);
 
-		if(
+		if (
 			is_object(json_decode($result)) &&
 			json_decode($result)->status != 'success'
 		)

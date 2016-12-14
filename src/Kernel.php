@@ -16,10 +16,10 @@ class Kernel
             $resource .= '/' . $params['id'];
 
 		$url = $this->apiUrl . '/' . $resource . '?apiKey=' . $this->apiKey;
+
         $response = Http::get($url, $params, $returnPlain);
 
-        if($returnPlain)
-            return $response;
+        if ($returnPlain) return $response;
 
         $this->setHttpStatusCode($response);
 
@@ -32,8 +32,7 @@ class Kernel
 
         $response = Http::post($url, $params);
 
-        if($returnPlain)
-            return $response;
+        if ($returnPlain) return $response;
 
         $this->setHttpStatusCode($response);
 
@@ -42,7 +41,7 @@ class Kernel
 
     private function setHttpStatusCode($response)
     {
-        if($this->setStatusCode)
+        if ($this->setStatusCode)
             header(
                 'Content-Type: application/json',
                 true,

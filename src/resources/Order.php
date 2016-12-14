@@ -12,12 +12,10 @@ class Order extends Resource
     }
 
     public function addApplication($data)
-    {        
+    {
         $this->applications = array_merge(
             $this->applications,
-            [
-                new Application($data)
-            ]
+            [new Application($data)]
         );
     }
 }
