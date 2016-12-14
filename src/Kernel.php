@@ -41,11 +41,10 @@ class Kernel
 
     private function setHttpStatusCode($response)
     {
-        if ($this->setStatusCode)
-            header(
-                'Content-Type: application/json',
-                true,
-                $response->request_info->http_code
-            );
+        header(
+            'Content-Type: application/json',
+            true,
+            $response->request_info->http_code
+        );
     }
 }
