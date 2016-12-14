@@ -4,6 +4,8 @@ namespace VisaLogic\Resources;
 
 class Order extends Resource
 {
+    protected $applications;
+
     public function __construct($data)
     {
         parent::__construct($data);
