@@ -15,11 +15,11 @@ This document holds the documentation for the Application Programming Interface 
 Our API class is available through [composer](http://getcomposer.org).
 
 You can install our dependency using the following command:
-    
+
     composer require visalogic/api
 
 In your project you should `require` composer's `autoload.php` file:
-    
+
     <?php
         require 'vendor/autoload.php';
 
@@ -38,7 +38,7 @@ You can aquire an API key via our [backoffice](backoffice.visalogic.nl).
 
 ### 3.2 Setting the API key
 
-You can set the API key by passing it as `__constructor` variable:
+You can set the API key by passing it through the `constructor`:
 
     $visalogic = new VisaLogic\Api('your-api-key');
 
@@ -50,7 +50,7 @@ You can request your orders by calling the `getOrders();` method. This will get 
     $visalogic->getOrders();
 
 The orders are paginated. To request your next 15 orders you can provide a pagenumber as the first argument.
-    
+
     $visalogic->getOrders($page = 2);
 
 ### 4.2 Get an order
@@ -89,8 +89,8 @@ Then you can add an application to the order by calling the `addApplication();` 
         'document_expire_date' => '2020-01-02',
         'visa_start_date'      => 'YYYY-MM-DD' // This date has to be after yesterday
     ]);
-    
-`nationality` can be either `NL` or `BE`, and `document_type` can be `passport` or `id_card`. For one order the `passport` and `visa_start_date` have to be the same. If this is not the case, please create two seprateo orders.
+
+`nationality` can be either `NL` or `BE`, and `document_type` can be `passport` or `id_card`. For one order the all `document_type` values and `visa_start_date` values have to be the same. If this is not the case, please create two seprateo orders.
 
 ### 4.3 Submit the order
 
@@ -103,9 +103,9 @@ When you finished creating the order, you can send it to us by using the `postOr
 You can request the status of a visa application by calling the following method, with the application_id:
 
     $application_status = $visalogic->getStatus($application_id = 1);
-    
+
 This method will return one of the following strings:
-    
+
 
 - `APPROVED` Application has been approved
 - `PENDING` Application is pending to be processed
@@ -121,4 +121,4 @@ If the application's status is `APPROVED` you can request the visa document by c
 
     $visalogic->getVisa($application_id = 1);
 
-This method will set headers for a pdf document to be downloaded and return the visa document.
+This method will set headers for a pdf document to be downloaded and returns the visa document.
