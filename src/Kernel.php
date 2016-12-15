@@ -10,6 +10,15 @@ class Kernel
 	protected $apiKey;
     protected $setStatusCode;
 
+    /**
+    *   The get method is responsible for making the GET requests to the API.
+    *
+    *   @param   string   $resource
+    *   @param   array    $params
+    *   @param   boolean  $returnPlain
+    *
+    *   @return  array
+    */
 	public function get($resource, $params = [], $returnPlain = false)
 	{
         if(isset($params['id']))
@@ -26,6 +35,15 @@ class Kernel
         return $response->response;
 	}
 
+    /**
+    *   The post method is responsible for making the POST requests to the API.
+    *
+    *   @param   string   $resource
+    *   @param   array    $params
+    *   @param   boolean  $returnPlain
+    *
+    *   @return  array
+    */
     public function post($resource, $params = [], $returnPlain = false)
     {
         $url = $this->apiUrl . '/' . $resource . '?apiKey=' . $this->apiKey;
@@ -39,6 +57,14 @@ class Kernel
         return $response->response;
     }
 
+    /**
+    *   The setHttpStatusCode method is responsible for setting the HTTP
+    *   status code in the headers.
+    *
+    *   @param   array   $response
+    *
+    *   @return  void
+    */
     private function setHttpStatusCode($response)
     {
         header(

@@ -4,8 +4,8 @@ namespace VisaLogic;
 
 interface ApiContract {
 	/**
-	*
-	*	The constructor is responsible for setting the $this->apiKey variable
+	*	The constructor is responsible for setting the $apiKey and
+	*   $setStatusCode properties
 	*
 	*	@param (string) $apiKey
 	*	@param (bool) $setStatusCode
