@@ -7,7 +7,7 @@ use Http\Factory as Http;
 class Resource
 {
     /**
-     * Set all the resources properties passed through the constructor.
+     * Set all the resource's properties passed through the constructor.
      *
      * @param  array  $data
      * @return void
