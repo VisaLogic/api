@@ -10,12 +10,12 @@ class Api extends Kernel implements ApiContract
     protected $apiKey;
 
     /**
-    *   The constructor is responsible for setting the $this->apiKey variable
-    *
-    *   @param (string) $apiKey
-    *   @param (boolean) $setStatusCode
-    *   @return void
-    **/
+     * The constructor is responsible for setting the $this->apiKey variable
+     *
+     * @param  string   $apiKey
+     * @param  boolean  $setStatusCode
+     * @return void
+     */
     public function __construct($apiKey, $setStatusCode = true)
     {
         $this->apiKey = $apiKey;
@@ -23,56 +23,56 @@ class Api extends Kernel implements ApiContract
     }
 
     /**
-    *   The getOrders method is responsible for making a call to the API
-    *   to retreive the comapanies orders.
-    *
-    *   @param $page (int)
-    *   @return object
-    **/
+     * The getOrders method is responsible for making a call to the API
+     * to retreive the comapanies orders.
+     *
+     * @param  int  $page
+     * @return object
+     */
     public function getOrders($page = 1)
     {
         return $this->get('orders', ['page' => $page]);
     }
 
     /**
-    *   The getOrder method gets an order by it's id.
-    *
-    *   @param $id (int)
-    *   @return object
-    **/
+     * The getOrder method gets an order by it's id.
+     *
+     * @param  int  $id
+     * @return object
+     **/
     public function getOrder($id)
     {
         return $this->get('orders', ['id' => $id]);
     }
 
     /**
-    *   The createOrder method creates a new VisaLogic\Resources\Order instance
-    *
-    *   @param $data (array)
-    *   @return VisaLogic\Resouces\Order object
-    **/
+     * The createOrder method creates a new VisaLogic\Resources\Order instance.
+     *
+     * @param  array  $data
+     * @return VisaLogic\Resouces\Order
+     */
     public function createOrder($data)
     {
         return new Order($data);
     }
 
     /**
-    *   The postOrder method posts the order to the api server.
-    *
-    *   @param VisaLogic\Resources\Order $order
-    *   @return object
-    **/
+     * The postOrder method posts the order to the api server.
+     *
+     * @param  VisaLogic\Resources\Order  $order
+     * @return object
+     */
     public function postOrder(Order $order)
     {
         return $this->post('orders', $order);
     }
 
     /**
-    *   The getStatus method returns the status of an application
-    *
-    *   @param $application_id (int)
-    *   @return string
-    **/
+     * The getStatus method returns the status of an application
+     *
+     * @param  int  $application_id
+     * @return string
+     */
     public function getStatus($application_id)
     {
         $result = $this->get('applications/status', ['id' => $application_id]);
@@ -81,11 +81,11 @@ class Api extends Kernel implements ApiContract
     }
 
     /**
-    *   The getViss method gets the pdf of an visa by it's id
-    *
-    *   @param int $application_id
-    *   @return pdf
-    **/
+     * The getVisa method gets the pdf of an visa by it's id
+     *
+     * @param  int  $application_id
+     * @return pdf
+     **/
     public function getVisa($application_id)
     {
         $result = $this->get(
@@ -113,11 +113,11 @@ class Api extends Kernel implements ApiContract
     }
 
     /**
-    *   The getCountries method returns all countries from which can be
-    *   applied from.
-    *
-    *   @return array
-    **/
+     * The getCountries method returns all countries from which can be
+     * applied from.
+     *
+     * @return array
+     */
     function getCountries()
     {
         return [
@@ -127,11 +127,11 @@ class Api extends Kernel implements ApiContract
     }
 
     /**
-    *   The getNationalities method returns all nationalities which can
-    *   apply for a visa.
-    *
-    *   @return array
-    **/
+     * The getNationalities method returns all nationalities which can
+     * apply for a visa.
+     *
+     * @return array
+     */
     function getNationalities()
     {
         return [
@@ -141,10 +141,10 @@ class Api extends Kernel implements ApiContract
     }
 
     /**
-    *   The getDocumentTypes method returns all document types VisaLogic offers.
-    *
-    *   @return array
-    **/
+     * The getDocumentTypes method returns all document types VisaLogic offers.
+     *
+     * @return array
+     **/
     function getDocumentTypes()
     {
         return $this->get('document_types');

@@ -7,12 +7,11 @@ class Order extends Resource
     protected $applications;
 
     /**
-    *   Set all the resources properties passed through the constructor.
-    *
-    *   @param array  $data
-    *
-    *   @return void
-    */
+     * Set all the resources properties passed through the constructor.
+     *
+     * @param  array  $data
+     * @return void
+     */
     public function __construct($data)
     {
         parent::__construct($data);
@@ -21,12 +20,11 @@ class Order extends Resource
     }
 
     /**
-    *   Add an application to the Order object.
-    *
-    *   @param array  $data
-    *
-    *   @return void
-    */
+     * Add an application to the Order object.
+     *
+     * @param  array  $data
+     * @return void
+     */
     public function addApplication($data)
     {
         $this->applications = array_merge(
